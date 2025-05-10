@@ -19,6 +19,7 @@ const HeroSection = () => {
             )
         } 
         )}
+      
     </div>
   )
 }

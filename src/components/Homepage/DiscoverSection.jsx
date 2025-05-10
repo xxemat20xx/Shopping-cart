@@ -5,7 +5,10 @@ const DiscoverSection = () => {
   
  
   return (
-    <div className='discover-section min-h-screen grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-5'>
+    <div className='discover-section p-5'>
+        <h1 className='text-4xl font-bold text-center'>Discover</h1>
+        <div className="text-center bg-orange-500 w-24 h-3 "></div>
+        <div className='min-h-screen grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
         {discoverMoreData.map((data) => {
             const {id, src, category} = data;
             return(
@@ -20,6 +23,8 @@ const DiscoverSection = () => {
             )
         })}
     </div>
+    </div>
+    
   )
 }
 
