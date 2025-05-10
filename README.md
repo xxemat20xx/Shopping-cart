@@ -1,4 +1,4 @@
-# React + Tailwind Sandbox
-
+# React JS
 <br />
-git clone https://github.com/xxemat20xx/React-Tailwind-sandbox.git
+<h1>Shopping cart</h1>
+<p>The Odin Project</p>
