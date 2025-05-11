@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { ProductContext } from '../Products/ProductProvider'
-
+import Footer from '../Homepage/Footer'
 import {  } from '@fortawesome/free-solid-svg-icons'
 const NavBar = () => {
   const {cart} = useContext(ProductContext);
@@ -36,6 +36,7 @@ const NavBar = () => {
     </nav>
       {/* SIDE NAV */}
         <Outlet />
+        <Footer />
     </>
   )
 }

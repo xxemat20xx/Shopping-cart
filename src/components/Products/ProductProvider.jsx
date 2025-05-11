@@ -24,12 +24,21 @@ const ProductProvider = ({children}) => {
   useEffect(() => {
     fetchAPI();
   },[]);
+  const topSeller = useMemo(() => {
+    return [...product]
+    .sort((a,b) => b.rating.count - a.rating.count)
+    .slice(0, 4);
+  },[product]);
+  console.log(topSeller);
+  
   const value = useMemo (() => ({
     product, 
     loading, 
-    cart, 
-    setCart}
-  ),[product, loading, cart]);
+    cart,
+    topSeller,
+    setCart
+  }
+  ),[product, loading, cart, topSeller]);
   
   return (
 

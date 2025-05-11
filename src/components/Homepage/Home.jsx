@@ -1,6 +1,8 @@
 import React from 'react'
 import HeroSection from './HeroSection'
 import DiscoverSection from './DiscoverSection'
+import TopSellerWidget from './TopSellerWidget'
+import Footer from './Footer'
 
 const Home = () => {
   return (
@@ -9,9 +11,8 @@ const Home = () => {
               
                 <HeroSection />
                 <DiscoverSection />
-              {/* <footer className='bg-gray-700 h-32'>
-                  <h1 className='text-6xl text-white font-bold'>Footer</h1>
-              </footer> */}
+                <TopSellerWidget />
+                
         </main>
        
     </>
