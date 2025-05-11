@@ -6,6 +6,7 @@ const Home = () => {
   return (
     <> 
         <main className='p-4 md:p-8 lg:p-12'>
+              
                 <HeroSection />
                 <DiscoverSection />
               {/* <footer className='bg-gray-700 h-32'>

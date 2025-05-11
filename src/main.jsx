@@ -8,7 +8,10 @@ import ProductProvider from './components/Products/ProductProvider.jsx';
 const router =  createBrowserRouter(routes);
 
 createRoot(document.getElementById('root')).render(
+    <StrictMode>
         <ProductProvider>
             <RouterProvider router={router}/>
         </ProductProvider>
+    </StrictMode>
+
 )

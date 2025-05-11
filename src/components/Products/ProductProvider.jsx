@@ -1,10 +1,12 @@
 
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useMemo } from "react";
 export const ProductContext = createContext();
 const ProductProvider = ({children}) => {
   const [product, setProducts] = useState([]);
   const [loading, setIsLoading] = useState(true);
-  
+  const [cart, setCart] = useState({quantity: 0}
+);
+
   const fetchAPI = async () => {
     const url = 'https://fakestoreapi.com/products'
     try {
@@ -21,10 +23,17 @@ const ProductProvider = ({children}) => {
   
   useEffect(() => {
     fetchAPI();
-  },[])
+  },[]);
+  const value = useMemo (() => ({
+    product, 
+    loading, 
+    cart, 
+    setCart}
+  ),[product, loading, cart]);
+  
   return (
 
-        <ProductContext.Provider value={{product, loading}}>
+        <ProductContext.Provider value={value}>
             {children}
         </ProductContext.Provider>
   )

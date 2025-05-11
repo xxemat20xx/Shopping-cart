@@ -1,11 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { ProductContext } from './ProductProvider';
-import { useState } from 'react';
+
 import Modal from './Modal';
 const ProductList = () => {
     const [modalOpen, setModalOpen] = useState(false);
-    const {product, loading} = useContext(ProductContext);
+    const {product, loading } = useContext(ProductContext);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    
+    
     const handleClick =(data) => {
         setModalOpen(true);
         setSelectedProduct(data)
@@ -24,19 +26,27 @@ const ProductList = () => {
                     
                     
                   return(
-                  <div key={id} className='card w-[300px] hover:w-[303px] cursor-pointer
-                  bg-white p-6 rounded-sm shadow-lg shadow-black/50 transition-all duration-300 ease-in-out'
-                  onClick={() => handleClick(data)}>
-                            <div className="card-content  flex items-center flex-col">
-                                <img src={image} alt={title} className='w-1/2'/>
-                                <h3 className='font-bold'>{title}</h3>
-                                <p>Price: ${price}</p>
-                                <p>Rating: {rating.rate}</p>
-                                <p>Purchased: {rating.count}</p>
-                            </div>
-                        
-                  </div>
-                
+                <div
+                key={id}
+                className='card w-[300px] cursor-pointer bg-white p-6 rounded-sm 
+                shadow-lg shadow-black/50 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between'
+                onClick={() => handleClick(data)}
+                >
+                <div className="card-content flex flex-col items-center h-[420px] justify-around">
+                    <img
+                    src={image}
+                    alt={title}
+                    className="h-50 w-50 object-contain mb-4"
+                    />
+                    <div className="text-center">
+                    <h3 className="font-bold text-sm mb-2 line-clamp-2">{title}</h3>
+                    <p>Price: ${price}</p>
+                    <p>Rating: {rating.rate}</p>
+                    <p>Purchased: {rating.count}</p>
+                    </div>
+                </div>
+                </div>
+
                   )
             }
             )}

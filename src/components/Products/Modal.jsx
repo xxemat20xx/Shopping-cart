@@ -2,7 +2,7 @@ import React from 'react';
 
 const Modal = ({ product, closeModal }) => {
   if (!product) return null; // If no product is passed, return null
-
+   
   return (
     <div className="fixed inset-0 bg-black bg-opacity-10 flex justify-center items-center z-50">
       <div className="bg-white p-8 rounded-lg w-[400px] shadow-lg">
