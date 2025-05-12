@@ -6,7 +6,11 @@ const ProductProvider = ({children}) => {
   const [loading, setIsLoading] = useState(true);
   const [cart, setCart] = useState({quantity: 0}
 );
+  const [categoryFilter, setCategoryFilter] = useState(null);
 
+  const filteredProducts = categoryFilter
+    ? product.filter((p) => p.category.toLowerCase() === categoryFilter.toLowerCase())
+    : product;
   const fetchAPI = async () => {
     const url = 'https://fakestoreapi.com/products'
     try {
@@ -29,16 +33,18 @@ const ProductProvider = ({children}) => {
     .sort((a,b) => b.rating.count - a.rating.count)
     .slice(0, 4);
   },[product]);
-  console.log(topSeller);
+  
   
   const value = useMemo (() => ({
     product, 
     loading, 
     cart,
     topSeller,
-    setCart
+    filteredProducts,
+    setCart,
+    setCategoryFilter
   }
-  ),[product, loading, cart, topSeller]);
+  ),[product, loading, cart, topSeller,filteredProducts]);
   
   return (
 

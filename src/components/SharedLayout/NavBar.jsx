@@ -7,8 +7,8 @@ import Footer from '../SharedLayout/Footer'
 import {  } from '@fortawesome/free-solid-svg-icons'
 import SideNav from './SideNav'
 const NavBar = () => {
-  const {cart} = useContext(ProductContext);
-
+  const {cart, setCategoryFilter} = useContext(ProductContext);
+  
   return (
     
     <>
@@ -29,7 +29,10 @@ const NavBar = () => {
         </div>
         <ul className='flex gap-5'>
             <li className='text-xl hover:text-orange-500 transition-all duration-300 delay-150 ease-in-out hidden md:block'><Link to="/">Home</Link></li>
-            <li className='text-xl hover:text-orange-500 transition-all duration-300 delay-150 ease-in-out hidden md:block'><Link to="products">Products</Link></li>
+            <li className='text-xl hover:text-orange-500 transition-all duration-300 delay-150 ease-in-out hidden md:block'><Link to="products"
+        onClick={() => setCategoryFilter(null)} >
+            Products
+        </Link></li>
             <li className='text-xl hover:text-orange-500 transition-all duration-300 delay-150 ease-in-out'><Link to="cart"><FontAwesomeIcon icon={faCartShopping}/>
             <sub> {cart.quantity > 99 ? '99+' : cart.quantity}</sub></Link></li>
         </ul>
