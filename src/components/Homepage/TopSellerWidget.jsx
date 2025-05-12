@@ -15,7 +15,7 @@ const TopSellerWidget = () => {
             return(
                 <div key={id} className='card w-[400px] bg-white p-6 rounded-sm 
                 shadow-lg shadow-black/50 flex flex-col justify-center items-center
-                md:w-[410px] lg:w-[420px]'>
+                md:w-[250px]'>
                     <img src={image} alt="" className='h-50 w-50 object-contain mb-4'/>
                     <p><strong>Item Purchased: {rating.count}+</strong></p>
                 </div>

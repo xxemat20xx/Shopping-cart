@@ -3,16 +3,17 @@ import { Link, Outlet } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { ProductContext } from '../Products/ProductProvider'
-import Footer from '../Homepage/Footer'
+import Footer from '../SharedLayout/Footer'
 import {  } from '@fortawesome/free-solid-svg-icons'
+import SideNav from './SideNav'
 const NavBar = () => {
   const {cart} = useContext(ProductContext);
 
   return (
     
     <>
-      <nav className='flex justify-around items-center align-center
-      bg-white font-bold text-xl p-3 fixed top-0 z-1 w-full'>
+      <nav className='flex justify-around items-center align-center fixed top-0 z-50 w-full
+      bg-white font-bold text-xl p-3 shadow-lg shadow-black/15'>
         {/* Burger menu on smaller screen */}
         <button className='burger cursor-pointer text-xl 
         hover:text-orange-500 
@@ -32,11 +33,7 @@ const NavBar = () => {
             <li className='text-xl hover:text-orange-500 transition-all duration-300 delay-150 ease-in-out'><Link to="cart"><FontAwesomeIcon icon={faCartShopping}/>
             <sub> {cart.quantity > 99 ? '99+' : cart.quantity}</sub></Link></li>
         </ul>
-    
     </nav>
-      {/* SIDE NAV */}
-        <Outlet />
-        <Footer />
     </>
   )
 }

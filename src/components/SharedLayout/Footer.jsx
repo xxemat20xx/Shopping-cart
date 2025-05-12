@@ -4,7 +4,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10 mt-16">
+    <footer className="bg-gray-900 text-white py-10">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8">
 
         {/* Logo + Home */}
@@ -32,7 +32,7 @@ const Footer = () => {
 
       {/* Bottom note */}
       <div className="mt-6 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} Raymart's Shop. All rights reserved.
+        &copy; {new Date().getFullYear()} The Odin Shop. All rights reserved.
       </div>
     </footer>
   );
