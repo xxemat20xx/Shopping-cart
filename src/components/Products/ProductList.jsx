@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { ProductContext } from './ProductProvider';
 import { useNavigate, Outlet } from 'react-router-dom';
+import Loading from '../LoadingPage/LoadingPage';
 
 const ProductList = () => {
     const {loading, filteredProducts} = useContext(ProductContext);
@@ -11,7 +12,7 @@ const ProductList = () => {
         navigate(`/products/${encodedTitle}`);
     };
 
-    if (loading) return <div className='mt-16'>Loading...</div>;
+    if (loading) return <Loading />;
 
     return (
         <div className='mt-16 p-5 flex flex-col items-center justify-center'>

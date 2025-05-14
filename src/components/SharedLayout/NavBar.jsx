@@ -5,10 +5,15 @@ import { faBars, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { ProductContext } from '../Products/ProductProvider'
 import Footer from '../SharedLayout/Footer'
 import {  } from '@fortawesome/free-solid-svg-icons'
-import SideNav from './SideNav'
 const NavBar = () => {
-  const {cart, setCategoryFilter} = useContext(ProductContext);
-  
+  const {cart, setIsLoading} = useContext(ProductContext);
+  const handleClick = () => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }
   return (
     
     <>
@@ -30,7 +35,7 @@ const NavBar = () => {
         <ul className='flex gap-5'>
             <li className='text-xl hover:text-orange-500 transition-all duration-300 delay-150 ease-in-out hidden md:block'><Link to="/">Home</Link></li>
             <li className='text-xl hover:text-orange-500 transition-all duration-300 delay-150 ease-in-out hidden md:block'><Link to="products"
-        onClick={() => setCategoryFilter(null)} >
+        onClick={handleClick} >
             Products
         </Link></li>
             <li className='text-xl hover:text-orange-500 transition-all duration-300 delay-150 ease-in-out'><Link to="cart"><FontAwesomeIcon icon={faCartShopping}/>

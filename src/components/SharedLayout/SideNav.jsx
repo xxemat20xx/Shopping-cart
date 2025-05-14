@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { ProductContext } from "../Products/ProductProvider";
+
 const SideNav = ({ setCategoryFilter }) => {
+  
+  
   return (
     <aside className="w-[180px] bg-gray-900 text-white p-6 hidden md:block">
       <nav className="flex flex-col gap-4 mt-16">
@@ -20,10 +24,7 @@ const SideNav = ({ setCategoryFilter }) => {
           Electronics
         </Link>
 
-        <Link to="products"
-        onClick={() => setCategoryFilter(null)} >
-            Show All
-        </Link>
+    
       </nav>
     </aside>
   );

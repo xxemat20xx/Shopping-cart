@@ -1,5 +1,6 @@
 
 import { createContext, useEffect, useState, useMemo } from "react";
+import Loading from "../LoadingPage/LoadingPage";
 export const ProductContext = createContext();
 const ProductProvider = ({children}) => {
   const [product, setProducts] = useState([]);
@@ -25,9 +26,12 @@ const ProductProvider = ({children}) => {
     }
   }
   
-  useEffect(() => {
+useEffect(() => {
     fetchAPI();
-  },[]);
+  }, []);
+  
+
+
   const topSeller = useMemo(() => {
     return [...product]
     .sort((a,b) => b.rating.count - a.rating.count)
