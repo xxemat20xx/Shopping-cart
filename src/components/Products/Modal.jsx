@@ -1,15 +1,6 @@
-import React, { useContext } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { ProductContext } from './ProductProvider';
+import React from 'react';
 
-const Modal = () => {
-    const { title } = useParams();
-    const { product } = useContext(ProductContext);
-    const navigate = useNavigate();
-
-    const decodedTitle = decodeURIComponent(title);
-    const foundProduct = product.find(p => p.title === decodedTitle);
-
+const Modal = ({ foundProduct, navigate }) => {
     if (!foundProduct) return null;
 
     return (

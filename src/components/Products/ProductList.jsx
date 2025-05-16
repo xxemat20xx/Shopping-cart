@@ -1,16 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ProductContext } from './ProductProvider';
-import { useNavigate, Outlet } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../LoadingPage/LoadingPage';
+import Modal from './Modal'; // Assuming Modal is in the same folder
 
 const ProductList = () => {
-    const {loading, filteredProducts} = useContext(ProductContext);
+    const { loading, filteredProducts, product } = useContext(ProductContext);
     const navigate = useNavigate();
+    const { title } = useParams();
+    const [showModal, setShowModal] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     const handleClick = (data) => {
         const encodedTitle = encodeURIComponent(data.title); // encode for safe URL
         navigate(`/products/${encodedTitle}`);
+        setSelectedProduct(data); // Set the selected product
+        setShowModal(true); // Show the modal
     };
+
+    const decodedTitle = decodeURIComponent(title);
+    const foundProduct = product.find(p => p.title === decodedTitle);
 
     if (loading) return <Loading />;
 
@@ -50,8 +59,10 @@ const ProductList = () => {
                 })}
             </div>
 
-         
-            <Outlet />
+            {/* Conditionally render the Modal */}
+            {showModal && foundProduct && (
+                <Modal foundProduct={foundProduct} navigate={navigate} />
+            )}
         </div>
     );
 };
