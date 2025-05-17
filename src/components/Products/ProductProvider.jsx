@@ -5,8 +5,7 @@ export const ProductContext = createContext();
 const ProductProvider = ({children}) => {
   const [product, setProducts] = useState([]);
   const [loading, setIsLoading] = useState(true);
-  const [cart, setCart] = useState({quantity: 0}
-);
+  const [cart, setCart] = useState({quantity: 0});
   const [categoryFilter, setCategoryFilter] = useState(null);
 
   const filteredProducts = categoryFilter
