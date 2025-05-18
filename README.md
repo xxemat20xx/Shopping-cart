@@ -3,7 +3,7 @@
 A modern e-commerce shopping cart application built as part of The Odin Project curriculum. This project demonstrates a fully functional shopping experience with product listings, cart management, and a responsive design.
 
 ## 🔴 Live Demo
-[View Live Demo](your-netlify-url-here)
+[View Live Demo](https://odinproject-shoppingcart.netlify.app/)
 
 ## 📸 Screenshots
 
