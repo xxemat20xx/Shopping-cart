@@ -58,7 +58,7 @@ This project uses the [Fake Store API](https://fakestoreapi.com/) for product da
 
 1. Clone the repository
 ```bash
-git clone [your-repo-url]
+git clone [https://github.com/xxemat20xx/Shopping-cart.git]
 ```
 
 2. Navigate to project directory
