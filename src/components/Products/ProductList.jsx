@@ -5,6 +5,7 @@ import Loading from '../LoadingPage/LoadingPage';
 import Modal from './Modal'; // Assuming Modal is in the same folder
 import SideNav from '../SharedLayout/SideNav';
 import { Outlet } from 'react-router-dom';
+import StarRating from './StarRating';
 
 const ProductList = () => {
     const { loading, filteredProducts, product, setCategoryFilter } = useContext(ProductContext);
@@ -32,7 +33,9 @@ const ProductList = () => {
             
             {/* Main Content */}
             <div className='flex-1 my-16 p-5'>
-                <h1 className='text-4xl font-bold text-center'>Products</h1>
+                <h1 className='text-4xl font-bold text-center md:text-left'>Products</h1>
+                <div className="text-center bg-orange-500 w-24 h-2 mx-auto my-5 block md:text-left md:mx-0"></div>
+
                 <div className='cards grid grid-cols-1 justify-self-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-8'>
                     {filteredProducts.map((data) => {
                         const { id, title, image, price, rating } = data;
@@ -40,25 +43,28 @@ const ProductList = () => {
                         return (
                             <div
                                 key={id}
-                                className='card w-[300px] cursor-pointer bg-white p-6 rounded-sm 
-                                shadow-lg shadow-black/50 
+                                className='card w-full max-w-[280px] cursor-pointer bg-white p-6 rounded-lg 
+                                shadow-lg shadow-black/5 hover:shadow-xl
                                 hover:scale-[1.02] transition-all 
-                                duration-300 flex flex-col 
-                                justify-between
-                                md:w-[280px]'
+                                duration-300
+                                mx-auto'
                                 onClick={() => handleClick(data)}
                             >
-                                <div className="card-content flex flex-col items-center h-[420px] justify-around">
-                                    <img
-                                        src={image}
-                                        alt={title}
-                                        className="h-50 w-50 object-contain mb-4"
-                                    />
-                                    <div className="text-center">
-                                        <h3 className="font-bold text-sm mb-2 line-clamp-2">{title}</h3>
-                                        <p>Price: ${price}</p>
-                                        <p>Rating: {rating.rate}</p>
-                                        <p>Purchased: {rating.count}</p>
+                                <div className="flex flex-col items-center space-y-4">
+                                    <div className="w-full h-[200px] flex items-center justify-center">
+                                        <img
+                                            src={image}
+                                            alt={title}
+                                            className="max-h-full max-w-full object-contain"
+                                        />
+                                    </div>
+                                    <div className="w-full space-y-2">
+                                        <h3 className="font-bold text-sm line-clamp-2 min-h-[2.5rem]">{title}</h3>
+                                        <div className="flex flex-col space-y-1">
+                                            <p className="text-lg font-semibold text-orange-500">${price}</p>
+                                            <StarRating rating={rating.rate} />
+                                            <p className="text-sm text-gray-600">Purchased: {rating.count}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
